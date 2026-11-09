@@ -66,7 +66,7 @@ function draw() {
     // rollover
     if (mouseX >= posx && mouseX <= posx + larghezza &&
         mouseY >= yTop && mouseY <= yBase) {
-      label = nome + " (" + paese + ")";
+      label = nome + " (" + visitatori.toLocaleString('it-IT') + " visitors)";
     }
 
     posx += larghezza + gutter;
@@ -77,12 +77,12 @@ function draw() {
 
   // titolo
   fill(238, 229, 233);
-  textSize(28);
+  textSize(38);
   text("Most visited art museums in 2025", margin, margin + 15);
 
   // legenda
-  textSize(12);
-  let legX = width - 160;
+  textSize(16);
+  let legX = width - 180;
   let legY = margin + 10;
   let i = 0;
   for (let paese in colori) {
@@ -108,7 +108,9 @@ function draw() {
     // sfondo grigio del testo
     noStroke();
     fill(80, 200);
-    rect(x - padding, y - 6 - padding, larghezzaTesto + 2 * padding, 12 + 2 * padding);
+    
+    let hTesto = textSize();
+    rect(x - padding, y - hTesto / 2 - padding, larghezzaTesto + 2 * padding, hTesto + 2 * padding);
 
     // testo
     fill(238, 229, 233);
@@ -132,7 +134,8 @@ function disegnoColonna(xCentro, yBase, yTop, larghezza, colore) {
 
   let wBase = larghezza * 0.8; // larghezza del fusto in basso
   let wCima = larghezza * 0.65; // larghezza del fusto in alto
-
+  
+  noStroke();
   fill(colore);
 
   // terra
