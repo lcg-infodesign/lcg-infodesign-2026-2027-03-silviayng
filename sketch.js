@@ -40,7 +40,7 @@ async function setup() {
 
 function draw() {
   background(coloreSfondo);
-  textFont('JetBrainsMono-Variable');
+  textFont('JetBrainsMono-Variable, monospace'); //messo un altro carattere nel caso in cui quello che ho scelto non si dovesse caricare
 
   let numeroGutter = myTable.getRowCount() - 1; //deve esserci uno spazio in meno rispetto al numero di elementi perchè poi c'è il margine
   let larghezza = (width - 2 * margin - numeroGutter * gutter) / myTable.getRowCount();
